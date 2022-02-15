@@ -1,0 +1,4 @@
+# Set default values.
+values:
+  pkg:
+    name: btrfsmaintenance

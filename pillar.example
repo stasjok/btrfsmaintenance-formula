@@ -1,0 +1,7 @@
+# vim: ft=yaml
+
+btrfsmaintenance:
+
+  # Package name for installation
+  pkg:
+    name: btrfsmaintenance
