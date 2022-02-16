@@ -10,7 +10,8 @@ See `pillar.example` file for configuration examples.
 
 ## Special notes
 
-This formula is tested on SUSE 15 hosts, but generally should work on systems, where `btrfsmaintenance` package is available in repositories.
+This formula is tested on SUSE 15 hosts, but generally should work on any system, where
+`btrfsmaintenance` package is available in repositories.
 
 ## Available states
 
@@ -18,18 +19,19 @@ This formula is tested on SUSE 15 hosts, but generally should work on systems, w
 
 *Meta-state (This is a state that includes other states).*
 
-This installs the btrfsmaintenance.
+This installs the `btrfsmaintenance` and manages its configuration.
+
+### btrfsmaintenance.package
+
+This state will install the `btrfsmaintenance` package.
+
+### btrfsmaintenance.config
+
+This state will configure the `btrfsmaintenance` and has a dependency on `btrfsmaintenance.install` via
+include list.
 
 ### btrfsmaintenance.clean
 
 *Meta-state (This is a state that includes other states).*
 
 This state will undo everything performed in the `btrfsmaintenance` meta-state in reverse order.
-
-### btrfsmaintenance.package
-
-This state will install the btrfsmaintenance package.
-
-### btrfsmaintenance.package.clean
-
-This state will remove the btrfsmaintenance package.

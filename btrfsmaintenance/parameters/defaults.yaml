@@ -2,3 +2,25 @@
 values:
   pkg:
     name: btrfsmaintenance
+
+  config:
+    path: /etc/sysconfig/btrfsmaintenance
+
+    options:
+      BTRFS_LOG_OUTPUT: stdout
+      BTRFS_DEFRAG_PATHS: []
+      BTRFS_DEFRAG_PERIOD: none
+      BTRFS_DEFRAG_MIN_SIZE: +1M
+      BTRFS_BALANCE_MOUNTPOINTS: auto
+      BTRFS_BALANCE_PERIOD: weekly
+      BTRFS_BALANCE_DUSAGE:
+        - 5
+        - 10
+      BTRFS_BALANCE_MUSAGE: 5
+      BTRFS_SCRUB_MOUNTPOINTS: auto
+      BTRFS_SCRUB_PERIOD: monthly
+      BTRFS_SCRUB_PRIORITY: idle
+      BTRFS_SCRUB_READ_ONLY: false
+      BTRFS_TRIM_MOUNTPOINTS: auto
+      BTRFS_TRIM_PERIOD: none
+      BTRFS_ALLOW_CONCURRENCY: false

@@ -2,6 +2,92 @@
 
 btrfsmaintenance:
 
-  # Package name for installation
-  pkg:
-    name: btrfsmaintenance
+  # Lookup values
+  lookup:
+    # Package name
+    pkg:
+      name: btrfsmaintenance
+    # Config file path
+    config:
+      path: /etc/sysconfig/btrfsmaintenance
+
+  config:
+    # Configuration options
+    options:
+      # Output target for messages.
+      ## string(none,stdout,journal,syslog)
+      BTRFS_LOG_OUTPUT: stdout
+      # Run periodic defrag on selected paths. Won't cross mountpoints.
+      ## 'auto' or colon separated paths or list of paths
+      BTRFS_DEFRAG_PATHS: []
+      # Frequency of defrag.
+      ## string(none,daily,weekly,monthly) or see "Calendar Events" section of systemd.time(7)
+      BTRFS_DEFRAG_PERIOD: none
+      # Minimal file size to consider for defragmentation.
+      ## see -size option in find(1)
+      BTRFS_DEFRAG_MIN_SIZE: +1M
+      # Which mountpoints/filesystems to balance periodically.
+      ## 'auto' or colon separated paths or list of paths
+      BTRFS_BALANCE_MOUNTPOINTS: auto
+      # Frequency of periodic balance.
+      ## string(none,daily,weekly,monthly) or see "Calendar Events" section of systemd.time(7)
+      BTRFS_BALANCE_PERIOD: weekly
+      # The usage percent for balancing data block groups.
+      ## space separated numbers or list of numbers
+      BTRFS_BALANCE_DUSAGE:
+        - 5
+        - 10
+      # The usage percent for balancing metadata block groups.
+      ## space separated numbers or list of numbers
+      BTRFS_BALANCE_MUSAGE: 5
+      # Which mountpoints/filesystems to scrub periodically.
+      ## 'auto' or colon separated paths or list of paths
+      BTRFS_SCRUB_MOUNTPOINTS: auto
+      # Frequency of periodic scrub.
+      ## string(none,daily,weekly,monthly) or see "Calendar Events" section of systemd.time(7)
+      BTRFS_SCRUB_PERIOD: monthly
+      # Priority of IO at which the scrub process will run.
+      ## string(idle,normal)
+      BTRFS_SCRUB_PRIORITY: idle
+      # Do read-only scrub and don't try to repair anything.
+      ## boolean
+      BTRFS_SCRUB_READ_ONLY: false
+      # Frequency of periodic trim.
+      ## string(none,daily,weekly,monthly) or see "Calendar Events" section of systemd.time(7)
+      BTRFS_TRIM_MOUNTPOINTS: auto
+      # Allow tasks ro run simultaneously
+      ## boolean
+      BTRFS_TRIM_PERIOD: none
+      # Which mountpoints/filesystems to trim periodically.
+      ## 'auto' or colon separated paths or list of paths
+      BTRFS_ALLOW_CONCURRENCY: false
+
+  tofs:
+    # The files_switch key serves as a selector for alternative
+    # directories under the formula files directory. See TOFS pattern
+    # doc for more info.
+    # Note: Any value not evaluated by `config.get` will be used literally.
+    # This can be used to set custom paths, as many levels deep as required.
+    files_switch:
+      - any/path/can/be/used/here
+      - id
+      - roles
+      - osfinger
+      - os
+      - os_family
+
+    # All aspects of path/file resolution are customisable using the options below.
+    # This is unnecessary in most cases; there are sensible defaults.
+    # Default path: salt://< path_prefix >/< dirs.files >/< dirs.default >
+    # I.e.: salt://btrfsmaintenance/files/default
+    # path_prefix: template_alt
+    # dirs:
+    #   files: files_alt
+    #   default: default_alt
+    # The entries under `source_files` are prepended to the default source files
+    # given for the state
+    source_files:
+      btrfsmaintenance_config:
+        - '/etc/sysconfig/btrfsmaintenance'
+        - '/etc/sysconfig/btrfsmaintenance_alt'
+        - '/etc/sysconfig/btrfsmaintenance.jinja'
