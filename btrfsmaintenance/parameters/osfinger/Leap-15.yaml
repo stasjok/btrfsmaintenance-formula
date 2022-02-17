@@ -1,0 +1,4 @@
+values:
+  config:
+    options:
+      BTRFS_BALANCE_MUSAGE: 3
