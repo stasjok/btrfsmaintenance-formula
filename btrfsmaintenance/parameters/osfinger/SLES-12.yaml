@@ -1,4 +1,11 @@
 values:
+  config:
+    options:
+      # Default value on SLES 12 is 3
+      BTRFS_BALANCE_MUSAGE: 3
+      # Trim is enabled by default on SLES 12
+      BTRFS_TRIM_PERIOD: weekly
+
   refresh:
     watcher:
       # There is no btrfsmaintenance-refresh.path on SLES 12
