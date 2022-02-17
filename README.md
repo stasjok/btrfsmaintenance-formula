@@ -19,7 +19,7 @@ This formula is tested on SUSE 15 hosts, but generally should work on any system
 
 *Meta-state (This is a state that includes other states).*
 
-This installs the `btrfsmaintenance`, manages its configuration and configuration file watcher service.
+This installs the `btrfsmaintenance`, manages its configuration and file watcher service.
 
 ### btrfsmaintenance.package
 
