@@ -19,7 +19,7 @@ This formula is tested on SUSE 15 hosts, but generally should work on any system
 
 *Meta-state (This is a state that includes other states).*
 
-This installs the `btrfsmaintenance` and manages its configuration.
+This installs the `btrfsmaintenance`, manages its configuration and configuration file watcher service.
 
 ### btrfsmaintenance.package
 
@@ -39,6 +39,13 @@ This state will refresh cron symlinks or systemd timers by calling `btrfsmainten
 but only if file watcher is not activated.
 
 You don't need to call this state manually unless you're managing configuration by hand.
+
+### btrfsmaintenance.refresh.watcher
+
+This state will start or stop configuration file watcher depending on a value
+`btrfsmaintenance.refresh.watcher.running`.
+
+You can safely disable it, if you're managing configuration with `btrfsmaintenance.config` state.
 
 ### btrfsmaintenance.clean
 

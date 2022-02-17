@@ -1,0 +1,5 @@
+values:
+  refresh:
+    watcher:
+      # There is no btrfsmaintenance-refresh.path on SLES 12
+      running: false

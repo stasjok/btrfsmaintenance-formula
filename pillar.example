@@ -68,6 +68,13 @@ btrfsmaintenance:
       ## boolean
       BTRFS_ALLOW_CONCURRENCY: false
 
+  refresh:
+    watcher:
+      # Whether file watcher running or not. If it's running it will refresh
+      # cron symlinks or systemd timers automatically after updating
+      # configuration file.
+      running: true
+
   tofs:
     # The files_switch key serves as a selector for alternative
     # directories under the formula files directory. See TOFS pattern

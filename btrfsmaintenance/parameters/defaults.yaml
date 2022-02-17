@@ -8,6 +8,7 @@ values:
       name: btrfsmaintenance-refresh
     watcher:
       name: btrfsmaintenance-refresh.path
+      running: true
 
   config:
     path: /etc/sysconfig/btrfsmaintenance
