@@ -30,6 +30,9 @@ This state will install the `btrfsmaintenance` package.
 This state will configure the `btrfsmaintenance` and has a dependency on `btrfsmaintenance.install` via
 include list.
 
+By default configuration options match defaults except that `btrfsmaintenance` will scrub/balance
+not only `/` but all mounted btrfs filesystems (special word/mountpoint `auto`).
+
 ### btrfsmaintenance.clean
 
 *Meta-state (This is a state that includes other states).*

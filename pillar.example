@@ -12,7 +12,7 @@ btrfsmaintenance:
       path: /etc/sysconfig/btrfsmaintenance
 
   config:
-    # Configuration options
+    # Configuration options. This example uses default values unless overriden for specific OS.
     options:
       # Output target for messages.
       ## string(none,stdout,journal,syslog)
