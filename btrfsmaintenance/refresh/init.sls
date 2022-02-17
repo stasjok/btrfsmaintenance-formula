@@ -8,13 +8,14 @@
 
 btrfsmaintenance-refresh-service-start:
   module.run:
-{%- if is_module_run_new_style %}
+    {%- if is_module_run_new_style %}
     - service.start:
         - name: {{ btrfsmaintenance.refresh.service.name }}
-{%- else %}
+    {%- else %}
     - name: service.start
     - m_name: {{ btrfsmaintenance.refresh.service.name }}
-{%- endif %}
+    {%- endif %}
+    # Do not refresh if file watcher is active
     - unless:
       - fun: service.status
         args:
