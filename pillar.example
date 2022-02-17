@@ -88,6 +88,5 @@ btrfsmaintenance:
     # given for the state
     source_files:
       btrfsmaintenance_config:
-        - '/etc/sysconfig/btrfsmaintenance'
         - '/etc/sysconfig/btrfsmaintenance_alt'
-        - '/etc/sysconfig/btrfsmaintenance.jinja'
+        - '/etc/sysconfig/btrfsmaintenance'

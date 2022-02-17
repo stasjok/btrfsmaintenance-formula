@@ -12,7 +12,7 @@ btrfsmaintenance-config-file-managed:
     - name: {{ btrfsmaintenance.config.path }}
     - source: {{
         files_switch(
-          ['/etc/sysconfig/btrfsmaintenance.jinja'],
+          ['/etc/sysconfig/btrfsmaintenance'],
           lookup='btrfsmaintenance_config',
           default_files_switch=["id", "osfinger", "os_family"],
         )
