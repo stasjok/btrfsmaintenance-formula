@@ -1,6 +1,6 @@
 # btrfsmaintenance-formula
 
-SaltStack formula for managing btrfsmaintenance configuration file.
+SaltStack formula for managing btrfsmaintenance.
 
 ## General notes
 
@@ -37,8 +37,6 @@ not only `/` but all mounted btrfs filesystems (special word/mountpoint `auto`).
 
 This state will start or stop configuration file watcher depending on a value
 `btrfsmaintenance.refresh.watcher.running`.
-
-You can safely disable it, if you're managing configuration with `btrfsmaintenance.config` state.
 
 ### btrfsmaintenance.clean
 

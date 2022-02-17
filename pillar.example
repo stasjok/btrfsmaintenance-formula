@@ -72,7 +72,8 @@ btrfsmaintenance:
     watcher:
       # Whether file watcher running or not. If it's running it will refresh
       # cron symlinks or systemd timers automatically after updating
-      # configuration file.
+      # configuration file. You can disable it, because
+      # `btrfsmaintenance.config` state will run refresh it in any case.
       running: true
 
   tofs:
