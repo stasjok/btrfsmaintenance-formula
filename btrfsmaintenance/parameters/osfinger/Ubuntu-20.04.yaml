@@ -1,0 +1,17 @@
+values:
+  config:
+    options:
+      BTRFS_BALANCE_DUSAGE:
+        - 1
+        - 5
+        - 10
+        - 20
+        - 30
+        - 40
+        - 50
+      BTRFS_BALANCE_MUSAGE:
+        - 1
+        - 5
+        - 10
+        - 20
+        - 30

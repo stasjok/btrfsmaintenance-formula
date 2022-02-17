@@ -60,15 +60,11 @@ BTRFS_BALANCE_MOUNTPOINTS="{{ string_value(opts.BTRFS_BALANCE_MOUNTPOINTS, ":") 
 ## ServiceRestart: btrfsmaintenance-refresh
 #
 # Frequency of periodic balance.
-#
-# The frequency may be specified using one of the listed values or
-# in the format documented in the "Calendar Events" section of systemd.time(7),
-# if available.
 BTRFS_BALANCE_PERIOD="{{ opts.BTRFS_BALANCE_PERIOD }}"
 
 ## Path:        System/File systems/btrfs
 ## Type:        string
-## Default:     "5 10"
+## Default:     "1 5 10 20 30 40 50"
 #
 # The usage percent for balancing data block groups.
 #
@@ -79,7 +75,7 @@ BTRFS_BALANCE_DUSAGE="{{ string_value(opts.BTRFS_BALANCE_DUSAGE, " ") }}"
 
 ## Path:        System/File systems/btrfs
 ## Type:        string
-## Default:     "5"
+## Default:     "1 5 10 20 30"
 #
 # The usage percent for balancing metadata block groups. The values are also
 # used in case the filesystem has mixed blockgroups.
@@ -105,10 +101,6 @@ BTRFS_SCRUB_MOUNTPOINTS="{{ string_value(opts.BTRFS_SCRUB_MOUNTPOINTS, ":") }}"
 ## ServiceRestart: btrfsmaintenance-refresh
 #
 # Frequency of periodic scrub.
-#
-# The frequency may be specified using one of the listed values or
-# in the format documented in the "Calendar Events" section of systemd.time(7),
-# if available.
 BTRFS_SCRUB_PERIOD="{{ opts.BTRFS_SCRUB_PERIOD }}"
 
 ## Path:        System/File systems/btrfs
@@ -135,10 +127,6 @@ BTRFS_SCRUB_READ_ONLY="{{ boolean_value(opts.BTRFS_SCRUB_READ_ONLY) }}"
 # Frequency of periodic trim. Off by default so it does not collide with
 # fstrim.timer . If you do not use the timer, turn it on here. The recommended
 # period is 'weekly'.
-#
-# The frequency may be specified using one of the listed values or
-# in the format documented in the "Calendar Events" section of systemd.time(7),
-# if available.
 BTRFS_TRIM_PERIOD="{{ opts.BTRFS_TRIM_PERIOD }}"
 
 ## Path:        System/File systems/btrfs
