@@ -3,9 +3,11 @@
 {%- from tplroot ~ "/map.jinja" import mapdata as btrfsmaintenance with context %}
 {%- from tplroot ~ "/libtofs.jinja" import files_switch with context %}
 {%- set sls_package_install = tplroot ~ '.package.install' %}
+{%- set sls_refresh = tplroot ~ '.refresh' %}
 
 include:
   - {{ sls_package_install }}
+  - {{ sls_refresh }}
 
 btrfsmaintenance-config-file-managed:
   file.managed:
@@ -25,3 +27,5 @@ btrfsmaintenance-config-file-managed:
         btrfsmaintenance: {{ btrfsmaintenance | yaml }}
     - require:
       - sls: {{ sls_package_install }}
+    - onchanges_in:
+      - sls: {{ sls_refresh }}

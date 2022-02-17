@@ -7,6 +7,12 @@ btrfsmaintenance:
     # Package name
     pkg:
       name: btrfsmaintenance
+    # Name of a services for refreshing cron symlinks or systemd timers
+    refresh:
+      service:
+        name: btrfsmaintenance-refresh
+      watcher:
+        name: btrfsmaintenance-refresh.path
     # Config file path
     config:
       path: /etc/sysconfig/btrfsmaintenance

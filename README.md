@@ -28,10 +28,17 @@ This state will install the `btrfsmaintenance` package.
 ### btrfsmaintenance.config
 
 This state will configure the `btrfsmaintenance` and has a dependency on `btrfsmaintenance.install` via
-include list.
+include list. It will trigger `btrfsmaintenance.refresh` state on changes.
 
 By default configuration options match defaults except that `btrfsmaintenance` will scrub/balance
 not only `/` but all mounted btrfs filesystems (special word/mountpoint `auto`).
+
+### btrfsmaintenance.refresh
+
+This state will refresh cron symlinks or systemd timers by calling `btrfsmaintenance-refresh` service,
+but only if file watcher is not activated.
+
+You don't need to call this state manually unless you're managing configuration by hand.
 
 ### btrfsmaintenance.clean
 

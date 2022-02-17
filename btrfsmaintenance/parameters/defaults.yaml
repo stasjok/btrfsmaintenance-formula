@@ -3,6 +3,12 @@ values:
   pkg:
     name: btrfsmaintenance
 
+  refresh:
+    service:
+      name: btrfsmaintenance-refresh
+    watcher:
+      name: btrfsmaintenance-refresh.path
+
   config:
     path: /etc/sysconfig/btrfsmaintenance
 
