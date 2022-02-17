@@ -1,0 +1,5 @@
+values:
+  config:
+    options:
+      # Default value on SLES 15 is 3
+      BTRFS_BALANCE_MUSAGE: 3
