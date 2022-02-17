@@ -3,6 +3,11 @@ values:
     options:
       # Default value on SLES 12 is 3
       BTRFS_BALANCE_MUSAGE: 3
+      # `auto` is not supported in the version available on SLES 12,
+      # use `/` instead
+      BTRFS_BALANCE_MOUNTPOINTS: /
+      BTRFS_SCRUB_MOUNTPOINTS: /
+      BTRFS_TRIM_MOUNTPOINTS: /
       # Trim is enabled by default on SLES 12
       BTRFS_TRIM_PERIOD: weekly
 
