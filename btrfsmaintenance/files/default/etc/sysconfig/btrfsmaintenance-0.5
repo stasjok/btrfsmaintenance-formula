@@ -152,10 +152,10 @@ BTRFS_TRIM_PERIOD="{{ opts.BTRFS_TRIM_PERIOD }}"
 # filesystems
 BTRFS_TRIM_MOUNTPOINTS="{{ string_value(opts.BTRFS_TRIM_MOUNTPOINTS, ":") }}"
 
-## Path:        System/File systems/btrfs
-## Description: Configuration to allow concurrent jobs
-## Type:        boolean
-## Default:     "false"
+## Path:	System/File systems/btrfs
+## Description:	Configuration to allow concurrent jobs
+## Type: 	boolean
+## Default:	"false"
 #
 # These maintenance tasks may compete for resources with each other, blocking
 # out other tasks from using the file systems.  This option will force
