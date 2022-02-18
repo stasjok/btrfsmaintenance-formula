@@ -9,6 +9,14 @@ btrfsmaintenance:
       name: btrfsmaintenance
     # Name of a services for refreshing cron symlinks or systemd timers
     refresh:
+      # Path to btrfsmaintenance-refresh-cron.sh script
+      path: /usr/share/btrfsmaintenance/btrfsmaintenance-refresh-cron.sh
+      uninstall:
+        # Arguments to btrfsmaintenance-refresh-cron.sh script for uninstalling
+        # systemd timers (it's used before cleaning). String or list of strings.
+        args:
+          - systemd-timer
+          - uninstall
       service:
         name: btrfsmaintenance-refresh
       watcher:
@@ -75,9 +83,6 @@ btrfsmaintenance:
       # configuration file. You can disable it, because
       # `btrfsmaintenance.config` state will run refresh it in any case.
       running: true
-    uninstall:
-      # Command to run for uninstalling systemd timers (it's used before cleaning)
-      cmd: /usr/share/btrfsmaintenance/btrfsmaintenance-refresh-cron.sh systemd-timer uninstall
 
   tofs:
     # The files_switch key serves as a selector for alternative

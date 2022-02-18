@@ -4,13 +4,16 @@ values:
     name: btrfsmaintenance
 
   refresh:
+    path: /usr/share/btrfsmaintenance/btrfsmaintenance-refresh-cron.sh
     service:
       name: btrfsmaintenance-refresh
     watcher:
       name: btrfsmaintenance-refresh.path
       running: true
     uninstall:
-      cmd: /usr/share/btrfsmaintenance/btrfsmaintenance-refresh-cron.sh systemd-timer uninstall
+      args:
+        - systemd-timer
+        - uninstall
 
   config:
     path: /etc/sysconfig/btrfsmaintenance

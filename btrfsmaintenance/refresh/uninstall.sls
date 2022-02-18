@@ -8,9 +8,10 @@ include:
 
 btrfsmaintenance-refresh-uninstall-cmd-run:
   cmd.run:
-    - name: {{ btrfsmaintenance.refresh.uninstall.cmd }}
+    - name: {{ btrfsmaintenance.refresh.path }}
+        {{ btrfsmaintenance.refresh.uninstall.args | sequence | join(' ') }}
     - onlyif:
-      - test -x "{{ btrfsmaintenance.refresh.uninstall.cmd.split()[0] }}"
+      - test -x "{{ btrfsmaintenance.refresh.path }}"
     - require:
       # Stop file watching in order to avoid recreating of timers
       - sls: {{ sls_refresh_watcher_dead }}

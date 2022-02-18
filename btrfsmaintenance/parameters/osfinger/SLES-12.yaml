@@ -16,4 +16,4 @@ values:
       # There is no btrfsmaintenance-refresh.path on SLES 12
       running: false
     uninstall:
-      cmd: /usr/share/btrfsmaintenance/btrfsmaintenance-refresh-cron.sh uninstall
+      args: uninstall
