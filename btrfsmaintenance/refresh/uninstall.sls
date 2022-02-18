@@ -11,7 +11,7 @@ btrfsmaintenance-refresh-uninstall-cmd-run:
     - name: {{ btrfsmaintenance.refresh.path }}
         {{ btrfsmaintenance.refresh.uninstall.args | sequence | join(' ') }}
     - onlyif:
-      - test -x "{{ btrfsmaintenance.refresh.path }}"
+      - test -x {{ btrfsmaintenance.refresh.path | quote }}
     - require:
       # Stop file watching in order to avoid recreating of timers
       - sls: {{ sls_refresh_watcher_dead }}
