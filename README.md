@@ -19,7 +19,9 @@ system, where `btrfsmaintenance` package is available.
 
 *Meta-state (This is a state that includes other states).*
 
-This installs the `btrfsmaintenance`, manages its configuration and file watcher service.
+This installs the `btrfsmaintenance`, manages its configuration, file watcher service and optionally
+(depending on a `btrfsmaintenance.refresh.fix_oncalendar` value) fixes a bug which causes every job to
+run 1st of month a 00:00 in addition to configured period.
 
 ### btrfsmaintenance.package
 
@@ -37,6 +39,18 @@ not only `/` but all mounted btrfs filesystems (special word/mountpoint `auto`).
 
 This state will start or stop configuration file watcher depending on a value
 `btrfsmaintenance.refresh.watcher.running`.
+
+### btrfsmaintenance.refresh.fix.oncalendar
+
+There is a bug in btrfsmaintenance <= 0.5 which causes every job to run 1st of month at 0:00 in
+addition to configured period. This state will patch `btrfsmaintenance-refresh-cron.sh` script to fix
+that. Note that the script will be restored back after every package upgrade. It is recommended to
+disable file watcher service if you are using this fix.
+
+### btrfsmaintenance.refresh.fix.clean
+
+This state will restore original `btrfsmaintenance-refresh-cron.sh` script (only if backup is
+available).
 
 ### btrfsmaintenance.clean
 

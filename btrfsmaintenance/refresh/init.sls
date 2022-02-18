@@ -16,6 +16,8 @@ btrfsmaintenance-refresh-service-start:
     - m_name: {{ btrfsmaintenance.refresh.service.name }}
     {%- endif %}
     # Do not refresh if file watcher is active
+    # TODO: `refresh.fix.oncalendar` state calls this state,
+    #   but this check prevents it from running
     - unless:
       - fun: service.status
         args:

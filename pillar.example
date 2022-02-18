@@ -81,8 +81,17 @@ btrfsmaintenance:
       # Whether file watcher running or not. If it's running it will refresh
       # cron symlinks or systemd timers automatically after updating
       # configuration file. You can disable it, because
-      # `btrfsmaintenance.config` state will run refresh it in any case.
+      # `btrfsmaintenance.config` state will run refresh if it isn't running.
       running: true
+    # There is a bug in btrfsmaintenance <= 0.5 which causes every job to run
+    # 1st of month at 0:00 in addition to configured period. If you set this to
+    # `true`, the formula will patch btrfsmaintenance-refresh-cron.sh script.
+    # If you enable it, consider disabling file watcher, because:
+    #   * Package upgrades will restore original script. File watcher could
+    #     trigger regeneration of timers, which wuold restore bugged behavior.
+    #   * If file watcher if running the formula will not run refresh manually,
+    #     but it's needed after patching.
+    fix_oncalendar: false
 
   tofs:
     # The files_switch key serves as a selector for alternative

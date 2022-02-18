@@ -14,6 +14,7 @@ values:
       args:
         - systemd-timer
         - uninstall
+    fix_oncalendar: false
 
   config:
     path: /etc/sysconfig/btrfsmaintenance
