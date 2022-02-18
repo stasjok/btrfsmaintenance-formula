@@ -10,7 +10,7 @@ See `pillar.example` file for configuration examples.
 
 ## Special notes
 
-This formula is tested on SUSE 12/15, Debian 10 and Ubuntu 20.04 hosts, but generally should work on any
+This formula is tested on SUSE 12/15, Debian 10/11 and Ubuntu 20.04 hosts, but generally should work on any
 system, where `btrfsmaintenance` package is available.
 
 ## Available states
